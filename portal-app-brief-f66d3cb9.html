@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f7e6d0 0%, #fadfc9 30%, #fcdbb5 70%, #f5ccaa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 100%;
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            background: rgba(255, 253, 250, 0.92);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(90, 50, 30, 0.25), 0 8px 16px -4px rgba(0, 0, 0, 0.05);
+            padding: 40px 36px 48px;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 28px 20px 36px;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        /* 标题区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #4a2e1b;
+            background: linear-gradient(145deg, #694b32, #9b6d49);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            font-weight: 350;
+            color: #6f543c;
+            border-bottom: 1px solid #e7cfb8;
+            display: inline-block;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* 摘要部分 */
+        .summary {
+            background: #fffaf3;
+            padding: 24px 28px;
+            border-radius: 32px 12px 32px 12px;
+            margin: 28px 0 32px;
+            box-shadow: inset 0 1px 4px rgba(110, 70, 40, 0.06), 0 4px 12px rgba(170, 120, 70, 0.08);
+            color: #3b2b1d;
+        }
+
+        .summary p {
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+        }
+
+        .summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary strong {
+            font-weight: 520;
+            color: #7d5a3b;
+        }
+
+        .highlight-tag {
+            display: inline-block;
+            background: #eddccb;
+            color: #3b281a;
+            border-radius: 40px;
+            padding: 2px 16px;
+            font-size: 0.9rem;
+            font-weight: 450;
+            margin-right: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 特点网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 32px 0 24px;
+        }
+
+        .feature-card {
+            background: rgba(255, 245, 235, 0.6);
+            backdrop-filter: blur(2px);
+            background: #fcf5ed;
+            border-radius: 28px 12px 28px 12px;
+            padding: 22px 18px 20px;
+            box-shadow: 0 2px 8px rgba(130, 80, 50, 0.04);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -6px rgba(100, 60, 30, 0.12);
+            background: #fff8f0;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            font-weight: 480;
+            color: #5d3e28;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card h3::before {
+            content: "✦";
+            color: #b6855c;
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: #4c3828;
+            font-size: 0.97rem;
+        }
+
+        /* 使用建议 / 场景 */
+        .scenario-section {
+            background: #fffaf5;
+            border-radius: 40px 12px 40px 12px;
+            padding: 26px 28px 28px;
+            margin: 30px 0 24px;
+            box-shadow: 0 2px 10px rgba(140, 95, 55, 0.05);
+        }
+
+        .scenario-section h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #4a3320;
+            margin-bottom: 18px;
+            border-left: 5px solid #caa17a;
+            padding-left: 18px;
+        }
+
+        .scenario-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 26px;
+            padding-left: 6px;
+        }
+
+        .scenario-item {
+            flex: 1 1 200px;
+            background: #f6ede4;
+            border-radius: 30px 8px 30px 8px;
+            padding: 14px 20px 14px 24px;
+            color: #412f1f;
+            font-size: 0.98rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scenario-item::before {
+            content: "·";
+            font-weight: 700;
+            font-size: 2rem;
+            color: #b2825a;
+            line-height: 1;
+        }
+
+        /* 可信·说明块 */
+        .trust-block {
+            margin: 24px 0 20px;
+            padding: 16px 0 6px;
+            border-top: 1px dashed #dac2aa;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px 20px;
+        }
+
+        .trust-note {
+            font-size: 0.95rem;
+            color: #5f4835;
+            background: #f5e9dd;
+            padding: 4px 18px 4px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .trust-note span {
+            margin-right: 6px;
+            opacity: 0.7;
+        }
+
+        /* FAQ 摘要（精简） */
+        .faq-mini {
+            background: #fbf3ea;
+            border-radius: 28px 8px 28px 8px;
+            padding: 20px 24px 18px;
+            margin: 28px 0 16px;
+        }
+
+        .faq-mini h4 {
+            font-weight: 450;
+            font-size: 1.2rem;
+            color: #563d29;
+            margin-bottom: 12px;
+        }
+
+        .faq-mini details {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e5cfb8;
+            padding-bottom: 10px;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 430;
+            color: #5c412f;
+            cursor: pointer;
+            padding: 4px 0;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini summary::marker {
+            color: #b68457;
+        }
+
+        .faq-mini p {
+            margin-top: 8px;
+            color: #4f3824;
+            font-size: 0.95rem;
+            padding-left: 12px;
+            border-left: 2px solid #dbb99a;
+        }
+
+        /* 链接 + 嵌入句子 */
+        .link-sentence {
+            background: #f7ede2;
+            padding: 18px 22px;
+            border-radius: 60px 14px 60px 14px;
+            margin-top: 16px;
+            font-size: 1.05rem;
+            color: #382a1c;
+            text-align: center;
+            border: 1px solid #edd9c2;
+        }
+
+        .link-sentence a {
+            color: #7a4f2d;
+            font-weight: 580;
+            text-decoration: none;
+            background: #f6e4d1;
+            padding: 4px 18px 4px 18px;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+            box-shadow: 0 1px 4px rgba(120, 70, 30, 0.06);
+        }
+
+        .link-sentence a:hover {
+            background: #e8cdb2;
+            color: #422a19;
+            box-shadow: 0 2px 8px rgba(100, 60, 25, 0.12);
+        }
+
+        /* 脚注 */
+        .footer-note {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #765d48;
+            border-top: 1px solid #ebd6c1;
+            padding-top: 20px;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-note small {
+            opacity: 0.8;
+        }
+
+        /* 响应式字体 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .summary {
+                padding: 18px;
+            }
+            .feature-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 标题 -->
+    <div class="hero">
+        <h1>赏金女王</h1>
+        <div class="sub">产品说明 · 站点介绍</div>
+    </div>
+
+    <!-- 摘要 -->
+    <div class="summary">
+        <p><span class="highlight-tag">概要</span> <strong>赏金女王</strong> 是一个围绕任务奖励与内容探索设计的轻量平台，面向希望以兴趣驱动方式获得反馈的用户。站点提供了清晰的任务浏览、进度追踪与奖励概览模块，整体风格明快，操作路径直观。</p>
+        <p>无论你是初次接触此类产品，还是寻找更流畅的体验，这里的引导与说明都尽量做到温和、不打扰。平台本身不涉及金融、不承诺收益，仅作为任务参与和互动记录的工具界面存在。</p>
+    </div>
+
+    <!-- 亮点网格 -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>简洁任务流</h3>
+            <p>从浏览到完成，步骤控制在三次点击以内。界面尽量减少冗余信息，只保留当前必要的进度与状态。</p>
+        </div>
+        <div class="feature-card">
+            <h3>进度透明</h3>
+            <p>已完成、进行中、待领取的分类一目了然。没有隐藏计数，每项记录都可追溯。</p>
+        </div>
+        <div class="feature-card">
+            <h3>低门槛参与</h3>
+            <p>无需复杂配置，注册后即可看到当前可参与的条目。适合碎片时间顺手浏览。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 / 场景 -->
+    <div class="scenario-section">
+        <h2>常见使用场景</h2>
+        <ul class="scenario-list">
+            <li class="scenario-item">日常浏览时选择感兴趣的任务尝试</li>
+            <li class="scenario-item">利用碎片时间查看奖励进展</li>
+            <li class="scenario-item">作为轻量互动，不做强目标规划</li>
+            <li class="scenario-item">了解任务型产品的基本交互逻辑</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 0.95rem; color: #4a3424;">建议将 <strong>赏金女王</strong> 作为体验任务流程的辅助工具，而非收入来源。保持适度，享受过程本身。</p>
+    </div>
+
+    <!-- 可信说明 -->
+    <div class="trust-block">
+        <div class="trust-note"><span>✓</span> 不涉及投资 / 理财 / 高回报承诺</div>
+        <div class="trust-note"><span>✓</span> 所有奖励均为平台内虚拟或合作方提供的体验类回馈</div>
+        <div class="trust-note"><span>✓</span> 注册前请阅读平台说明与条款</div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h4>常见疑问 · 简答</h4>
+        <details>
+            <summary>这个平台适合什么样的人？</summary>
+            <p>对任务激励模式好奇、希望尝试轻量互动体验的用户。不适合期待固定收入或高额回报的人群。</p>
+        </details>
+        <details>
+            <summary>需要付费才能使用吗？</summary>
+            <p>基础注册和浏览免费。部分奖励可能需要完成指定任务，但不会强制付费解锁。</p>
+        </details>
+        <details>
+            <summary>我的数据安全吗？</summary>
+            <p>平台采用常规加密传输，但建议不要在账户中存储敏感信息。具体参见平台隐私说明。</p>
+        </details>
+    </div>
+
+    <!-- 自然嵌入链接的句子（a标签可见文本 = 赏金女王） -->
+    <div class="link-sentence">
+        若想进一步了解或体验，可前往 <a href="https://portal-app-bountyqueen.com">赏金女王</a> 站点查看当前开放的内容与说明。
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <small>本页为介绍性说明，内容仅供参考，不构成任何形式的使用承诺。请依据个人判断合理使用。</small>
+    </div>
+
+</div>
+</body>
+</html>
